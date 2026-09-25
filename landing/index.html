@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>JobLoss OS</title>
+<meta name="description" content="Unofficial, private organizer for Texas unemployment steps, letter deadlines and proof. Not the Texas Workforce Commission.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Source+Serif+4:opsz,wght@8..60,600&display=swap">
+<style>
+  :root {
+    --paper: #f5f7f5; --card: #ffffff; --ink: #1b2421; --muted: #56635e;
+    --line: #d7dfdb; --accent: #2f6f62; --accent-ink: #ffffff; --warn: #9a5b12; --warn-bg: #fbf1e3;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #121816; --card: #1a2320; --ink: #e6ece9; --muted: #a2b0aa;
+      --line: #2c3834; --accent: #7cc3b1; --accent-ink: #0f1a17; --warn: #f0b467; --warn-bg: #2b2217;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #121816; --card: #1a2320; --ink: #e6ece9; --muted: #a2b0aa;
+    --line: #2c3834; --accent: #7cc3b1; --accent-ink: #0f1a17; --warn: #f0b467; --warn-bg: #2b2217;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink);
+    font: 17px/1.6 "Atkinson Hyperlegible", system-ui, -apple-system, "Segoe UI", sans-serif;
+    padding-inline: 16px;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding-block: 24px 64px; display: grid; gap: 48px; }
+  .strip { font-size: 14px; color: var(--muted); border-bottom: 1px solid var(--line); padding-block: 10px; }
+  .strip strong { color: var(--ink); }
+  h1, h2 { font-family: "Source Serif 4", Georgia, serif; font-weight: 600; text-wrap: balance; margin: 0; }
+  h1 { font-size: clamp(2rem, 5vw, 3.1rem); line-height: 1.1; }
+  h2 { font-size: 1.5rem; }
+  p { margin: 0; max-width: 62ch; }
+  .hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: 40px; align-items: center; }
+  .hero-text { display: grid; gap: 18px; }
+  .lede { font-size: 1.15rem; color: var(--muted); }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+  .btn { display: inline-block; background: var(--accent); color: var(--accent-ink); text-decoration: none;
+    padding: 12px 20px; border-radius: 10px; font-weight: 700; }
+  .btn:focus-visible, a:focus-visible { outline: 3px solid var(--warn); outline-offset: 3px; }
+  .note { font-size: 14px; color: var(--muted); }
+  /* A logged TWC letter, the way the app shows it */
+  .letter { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 20px; display: grid; gap: 12px;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 0.06); }
+  .letter .kind { font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  .letter .title { font-weight: 700; font-size: 1.1rem; }
+  .row { display: grid; grid-template-columns: 9.5em 1fr; gap: 4px 12px; font-variant-numeric: tabular-nums; }
+  .row dt { color: var(--muted); }
+  .row dd { margin: 0; }
+  .deadline { background: var(--warn-bg); color: var(--ink); border-radius: 10px; padding: 12px 14px; }
+  .deadline b { color: var(--warn); }
+  .badge { justify-self: start; font-size: 13px; border: 1px solid var(--accent); color: var(--accent); border-radius: 8px; padding: 2px 8px; }
+  .qs { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+  .q { display: grid; gap: 6px; align-content: start; border-top: 2px solid var(--accent); padding-top: 14px; }
+  .q h3 { margin: 0; font-size: 1.05rem; }
+  .q p { color: var(--muted); font-size: 16px; }
+  .isnt { display: grid; gap: 14px; background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 24px; }
+  .isnt ul { margin: 0; padding-left: 1.2em; display: grid; gap: 8px; max-width: 70ch; }
+  .links { display: grid; gap: 10px; }
+  .links a { color: var(--accent); }
+  footer { font-size: 14px; color: var(--muted); display: grid; gap: 6px; border-top: 1px solid var(--line); padding-top: 20px; }
+  @media (max-width: 760px) { .hero { grid-template-columns: 1fr; } .row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="strip"><strong>Unofficial.</strong> JobLoss OS is not the Texas Workforce Commission and is not legal advice.</div>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Laid off in Texas? Know the next step and keep proof of what you sent.</h1>
+      <p class="lede">A free, private phone app that turns TWC's letters and filing schedule into a clear list of steps and dates, each linked to the official page it comes from.</p>
+      <div class="cta">
+        <a class="btn" href="#status">Get the app</a>
+        <span class="note">No account. No ads. Your records stay on your phone.</span>
+      </div>
+    </div>
+    <div class="letter" aria-label="Example of a logged letter in the app">
+      <span class="kind">Example · Letter you logged</span>
+      <span class="title">Determination from TWC</span>
+      <dl class="row">
+        <dt>Mailing date</dt><dd>Mon, Sep 21, 2026</dd>
+        <dt>Printed deadline</dt><dd>Mon, Oct 5, 2026</dd>
+      </dl>
+      <div class="deadline"><b>Appeal deadline: Oct 5</b> · in 10 days. Date you entered from your letter.</div>
+      <span class="badge">Official step · source: twc.texas.gov</span>
+    </div>
+  </section>
+
+  <section class="qs" aria-label="What the app answers">
+    <div class="q"><h3>What do I do today?</h3><p>First steps after a layoff, WorkInTexas registration, your payment-request day every two weeks.</p></div>
+    <div class="q"><h3>What deadline is next?</h3><p>Log a letter and enter the date printed on it. The date on your letter always wins over the app's estimate.</p></div>
+    <div class="q"><h3>What did I already submit?</h3><p>Confirmation numbers, screenshots and a work search log with the same fields as TWC's form.</p></div>
+    <div class="q"><h3>When do I need a person?</h3><p>Denials, appeals, hearings and wage problems point you to TWC's phone lines and free legal aid.</p></div>
+  </section>
+
+  <section class="isnt">
+    <h2>What it isn't</h2>
+    <ul>
+      <li>It isn't TWC. You apply and request payments on TWC's own website or phone line.</li>
+      <li>It can't tell you whether you qualify or whether to appeal. Only TWC decides claims; legal aid can advise you.</li>
+      <li>It never asks for your Social Security number, passwords, PIN or bank details. If something does, it isn't us.</li>
+    </ul>
+  </section>
+
+  <section class="links">
+    <h2>Official places to start</h2>
+    <a href="https://www.twc.texas.gov/services/apply-benefits" rel="noopener">TWC: Apply for unemployment benefits</a>
+    <a href="https://www.twc.texas.gov/programs/unemployment-benefits/appeals-process" rel="noopener">TWC: Unemployment appeals</a>
+    <a href="https://texaslawhelp.org/article/unemployment-benefits-appeals-in-texas" rel="noopener">Texas Law Help: Unemployment appeals</a>
+    <a href="https://www.healthcare.gov/have-job-based-coverage/if-you-lose-job-based-coverage/" rel="noopener">HealthCare.gov: If you lose job-based coverage</a>
+  </section>
+
+  <footer id="status">
+    <span>Status: pre-release. Store listings are not live yet. Rule sources are waiting for human review.</span>
+    <span>JobLoss OS is independent and not affiliated with or endorsed by any government agency.</span>
+  </footer>
+</div>
+</body>
+</html>

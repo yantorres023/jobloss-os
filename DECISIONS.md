@@ -13,3 +13,8 @@ Format: `D-### | date | decision | rationale | reversibility`
 - D-009 | 2026-09-25 | Work search minimum comes from the user's TWC letter (entered by user), not a county table in-app. | County numbers change and are set by local boards; the letter is authoritative for that claimant. | Easy
 - D-010 | 2026-09-25 | Free for claimants; no ads; no data sale; revenue hypothesis = sponsors (employers/outplacement, credit unions, legal-aid funders, unions). | RT-6 ethics. | Medium
 - D-011 | 2026-09-25 | Health-coverage deadlines (Marketplace SEP, COBRA election) included from federal sources; SNAP/Medicaid excluded from v1. | Federal sources found and simple; SNAP/Medicaid rules not researched to safe depth. | Easy
+- D-012 | 2026-09-25 | No analytics/crash SDK in v1; learn via consented beta surveys and exports. | Sensitive data, vulnerable users; privacy review not possible autonomously. | Easy
+- D-013 | 2026-09-25 | Storage = one JSON document (atomic write + backup) instead of SQLite. | Small data volume, trivial export, pure-Dart testability. | Medium (migration if data grows)
+- D-014 | 2026-09-25 | Rules bundled with the app; no remote dataset download in v1. | Removes remote-content attack surface; updates ship via app releases. | Easy
+- D-015 | 2026-09-25 | Recurring items generate 28-day look-back / 35-day horizon; completed past items always kept. | Avoid burying mid-claim users in overdue items without losing history. | Easy
+- D-016 | 2026-09-25 | Inexact Android alarms at 9:00 local; no exact-alarm permission. | Day-level deadlines; avoids a sensitive permission and store scrutiny. | Easy
