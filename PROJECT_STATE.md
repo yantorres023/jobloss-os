@@ -9,7 +9,7 @@ _Living status file. Last updated 2026-09-25 at the end of the autonomous run._
 | 4. Red team → verdict | DONE: **GO (narrow, conditional)** | docs/RED_TEAM.md |
 | 5–6. Safety boundary + rule architecture | DONE | docs/SAFETY_BOUNDARY.md, docs/RULE_ARCHITECTURE.md, app/assets/rules/us_tx/rules.json |
 | 7–9. MVP build | DONE | app/ (Flutter) |
-| 10. Testing / CI | DONE locally (83/83); CI checks green; mobile builds: see RELEASE_REPORT | .github/workflows/ci.yml |
+| 10. Testing / CI | DONE: 83/83 tests; CI green including Android APK and iOS no-codesign builds (run 36150165349) | .github/workflows/ci.yml |
 | 11. Business / distribution | DONE (desk research only, nobody contacted) | docs/MONETIZATION, GROWTH, STORE_LISTING, landing/ |
 | 12. Source review / validation debt | DONE (documented, not paid down) | docs/SOURCE_REVIEW_DEBT, VALIDATION_DEBT |
 | 13. Final red team + report | DONE | docs/FINAL_RED_TEAM.md, RELEASE_REPORT.md |

@@ -51,12 +51,12 @@ interpret disputed facts. This is enforced by the schema (no fields for separati
 | `flutter test` | **83 / 83 passing** (local and CI). Covers rule applicability, deadlines, weekly and every-two-weeks recurrence, time zones (Chicago DST, El Paso Mountain time), rule updates that keep completed tasks, invalid datasets (20 mutations), delete/export, and widget flows |
 | Dataset validation (`tool/validate_dataset.dart`) | Pass |
 | Release gate (`--release`) | **Fails as designed:** 21 official rules still need source review. It runs in CI as informational. |
-| Android release APK (CI, debug-signed, not for the store) | BUILD_ANDROID_RESULT |
-| iOS `--release --no-codesign` (CI, macOS) | BUILD_IOS_RESULT |
+| Android release APK (CI, debug-signed, not for the store) | **Pass.** CI run 2 produced the artifact `jobloss-os-android-apk-not-for-store` (~25 MB), kept for 14 days |
+| iOS `--release --no-codesign` (CI, macOS) | **Pass** (CI run 2, macOS runner) |
 | Local Android/iOS builds | Not possible here: no Android SDK, Google's download host was blocked, no macOS |
 | On-device testing | **None performed** |
 
-CI run: https://github.com/yantorres023/jobloss-os/actions/runs/36149584591
+CI run (all jobs green): https://github.com/yantorres023/jobloss-os/actions/runs/36150165349
 
 ## 7. Business
 Free for claimants, with no ads and no data sale. The sponsor hypotheses, ranked: employers through outplacement (outplacement
