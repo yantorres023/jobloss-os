@@ -1,0 +1,22 @@
+include: package:flutter_lints/flutter.yaml
+
+formatter:
+  page_width: 100
+
+analyzer:
+  exclude:
+    - build/**
+    - android/**
+    - ios/**
+  language:
+    strict-casts: false
+    strict-raw-types: true
+
+linter:
+  rules:
+    - avoid_print
+    - prefer_final_locals
+    - prefer_single_quotes
+    - unawaited_futures
+    - always_declare_return_types
+    - directives_ordering
